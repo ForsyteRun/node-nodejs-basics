@@ -1,4 +1,5 @@
 import { Transform } from 'stream'
+import { pipeline } from 'stream/promises';
 
 const transform = async () => {
     const reverse = new Transform({
@@ -9,9 +10,11 @@ const transform = async () => {
         }
     })
 
-    process.stdin
-        .pipe(reverse)
-        .pipe(process.stdout)
+    pipeline(
+        process.stdin,
+        reverse,
+        process.stdout
+    )
 
 };
 
