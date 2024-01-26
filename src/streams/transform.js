@@ -10,11 +10,16 @@ const transform = async () => {
         }
     })
 
-    pipeline(
-        process.stdin,
-        reverse,
-        process.stdout
-    )
+    try {
+       await pipeline(
+            process.stdin,
+            reverse,
+            process.stdout
+        )
+    } catch (error) {
+        throw new Error(error)
+    }
+
 
 };
 
