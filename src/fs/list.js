@@ -16,7 +16,7 @@ const list = async () => {
    
     try {
         const files = await readdir(pathToDir)
-        for (const file of files) console.log(file);
+        console.log(files);
     } catch (error) {
         throw new Error(error);
     }
