@@ -4,7 +4,7 @@ const parseEnv = () => {
     const arrOfRSS = Object.entries(variables)
     .filter(([key]) => key.includes('RSS_'))
 
-    arrOfRSS.forEach(el => {
+    arrOfRSS.reverse().forEach(el => {
         const result = `${el[0]} = ${el[1]}`
         console.log(result);
     })
